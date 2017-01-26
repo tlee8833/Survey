@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CCATT Viewer Rounding Survey</title>
+</head>
+<body>
+  <h1>CCATT Viewer Rounding Survey</h1>
+  	<form action="/survey2" method="POST">
+
+	  <p><strong>After accessing the viewer</strong></p>
+
+	  <p><strong>Directions:</strong> For the following questions please select your responses</p>
+
+	  <ol>
+	    <li>
+	      Having reviewed the last 24 hrs during rounds, I feel that in the past 24 hours this  patient has shown evidence of:
+	      <ol>
+	      	<li>
+	      	  Infection
+		        <label for="qa1-1-1">Yes</label>
+	            <input type="radio" name="QA1_1" id="qa1-1-1" value="yes" <% if(survey1.Q2_1=="yes") { %> checked <% } %> >
+		        <label for="qa1-1-2">No</label>
+		        <input type="radio" name="QA1_1" id="qa1-1-2" value="no" <% if(survey1.Q2_1=="no") { %> checked <% } %> >	 
+		        <label for="qa1-1-3">Unsure</label>
+		        <input type="radio" name="QA1_1" id="qa1-1-3" value="unsure" <% if(survey1.Q2_1=="unsure") { %> checked <% } %> >
+	      	</li>
+	      	<li>
+	      	  Hemodynamic instability
+		        <label for="qa1-2-1">Yes</label>
+	            <input type="radio" name="QA1_2" id="qa1-2-1" value="yes" <% if(survey1.Q2_2=="yes") { %> checked <% } %> >
+		        <label for="qa1-2-2">No</label>
+		        <input type="radio" name="QA1_2" id="qa1-2-2" value="no" <% if(survey1.Q2_2=="no") { %> checked <% } %> >	 
+		        <label for="qa1-2-3">Unsure</label>
+		        <input type="radio" name="QA1_2" id="qa1-2-3" value="unsure" <% if(survey1.Q2_2=="unsure") { %> checked <% } %> >
+	      	</li>
+	      	<li>
+	      	  Uncontrolled bleeding
+		        <label for="qa1-3-1">Yes</label>
+	            <input type="radio" name="QA1_3" id="qa1-3-1" value="yes" <% if(survey1.Q2_3=="yes") { %> checked <% } %> >
+		        <label for="qa1-3-2">No</label>
+		        <input type="radio" name="QA1_3" id="qa1-3-2" value="no" <% if(survey1.Q2_3=="no") { %> checked <% } %> >	 
+		        <label for="qa1-3-3">Unsure</label>
+		        <input type="radio" name="QA1_3" id="qa1-3-3" value="unsure" <% if(survey1.Q2_3=="unsure") { %> checked <% } %> >
+	      	</li>
+	      	<li>
+	      	  Respiratory deterioration
+		        <label for="qa1-4-1">Yes</label>
+	            <input type="radio" name="QA1_4" id="qa1-4-1" value="yes" <% if(survey1.Q2_4=="yes") { %> checked <% } %> >
+		        <label for="qa1-4-2">No</label>
+		        <input type="radio" name="QA1_4" id="qa1-4-2" value="no" <% if(survey1.Q2_4=="no") { %> checked <% } %> >	 
+		        <label for="qa1-4-3">Unsure</label>
+		        <input type="radio" name="QA1_4" id="qa1-4-3" value="unsure" <% if(survey1.Q2_4=="unsure") { %> checked <% } %> >
+	      	</li>
+	      </ol>
+	    </li>
+	    <li>
+	      Over the past day the patient’s condition has…
+	      <label for="qa2-1">Improved significantly</label>
+          <input type="radio" name="QA2" id="qa2-1" value="1" <% if(survey1.Q3=="1") { %> checked <% } %> >
+	      <label for="qa2-2">Improved Slightly</label>
+	      <input type="radio" name="QA2" id="qa2-2" value="2" <% if(survey1.Q3=="2") { %> checked <% } %> >
+	      <label for="qa2-3">Unchanged</label>
+	      <input type="radio" name="QA2" id="qa2-3" value="3" <% if(survey1.Q3=="3") { %> checked <% } %> >
+	      <label for="qa2-4">Deteriorated slightly</label>
+	      <input type="radio" name="QA2" id="qa2-4" value="4" <% if(survey1.Q3=="4") { %> checked <% } %> >
+	      <label for="qa2-5">Deteriorated significantly</label>
+	      <input type="radio" name="QA2" id="qa2-5" value="5" <% if(survey1.Q3=="5") { %> checked <% } %> >
+	    </li>
+	    <li>
+	      Can the patient be transferred to a lower level of care?
+	      <label for="qa3-1">Yes</label>
+          <input type="radio" name="QA3" id="qa3-1" value="yes" <% if(survey1.Q4=="yes") { %> checked <% } %> >
+	      <label for="qa3-2">No</label>
+	      <input type="radio" name="QA3" id="qa3-2" value="no" <% if(survey1.Q4=="no") { %> checked <% } %> >
+	    </li>
+	    <li>
+	      Does the patient need to be transferred to a higher level of care?
+	      <label for="qa4-1">Yes</label>
+          <input type="radio" name="QA4" id="qa4-1" value="yes" <% if(survey1.Q5=="yes") { %> checked <% } %> >
+	      <label for="qa4-2">No</label>
+	      <input type="radio" name="QA4" id="qa4-2" value="no" <% if(survey1.Q5=="no") { %> checked <% } %> >
+	    </li>
+	    <li>
+	      <strong>(TBI Patients Only)</strong> Is the patient having any ICP problems within the last 24hrs?
+	      <label for="qa5-1">Yes</label>
+          <input type="radio" name="QA5" id="qa5-1" value="yes" <% if(survey1.Q5=="yes") { %> checked <% } %> >
+	      <label for="qa5-2">No</label>
+	      <input type="radio" name="QA5" id="qa5-2" value="no" <% if(survey1.Q5=="no") { %> checked <% } %> >
+	      <label for="qa5-3">Unsure</label>
+	      <input type="radio" name="QA5" id="qa5-3" value="unsure" <% if(survey1.Q5=="unsure") { %> checked <% } %> >
+	    </li>
+	    <li>
+	      Due to seeing the viewer, are you planning on any of the following interventions?
+	      <ol>
+	      	<li>
+	      	  Ordering additional diagnostic tests?
+		        <label for="qa6-1-1">Yes</label>
+	            <input type="radio" name="QA6_1" id="qa6-1-1" value="yes">
+		        <label for="qa6-1-2">No</label>
+		        <input type="radio" name="QA6_1" id="qa6-1-2" value="no">	 
+	      	</li>
+	      	<li>
+	      	  Changing any current medications?
+		        <label for="qa6-2-1">Yes</label>
+	            <input type="radio" name="QA6_2" id="qa6-2-1" value="yes">
+		        <label for="qa6-2-2">No</label>
+		        <input type="radio" name="QA6_2" id="qa6-2-2" value="no">
+		    </li>
+	      	<li>
+	      	  Ordering additional labs?
+			    <label for="qa6-3-1">Yes</label>
+	            <input type="radio" name="QA6_3" id="qa6-3-1" value="yes">
+		        <label for="qa6-3-2">No</label>
+		        <input type="radio" name="QA6_3" id="qa6-3-2" value="no">
+		    </li>
+	      	<li>
+	      	  Physically re-examining this patient?
+			    <label for="qa6-4-1">Yes</label>
+	            <input type="radio" name="QA6_4" id="qa6-4-1" value="yes">
+		        <label for="qa6-4-2">No</label>
+		        <input type="radio" name="QA6_4" id="qa6-4-2" value="no">
+		    </li>
+	      	<li>
+	      	  Providing a Fluid Bolus?
+			    <label for="qa6-5-1">Yes</label>
+	            <input type="radio" name="QA6_5" id="qa6-5-1" value="yes">
+		        <label for="qa6-5-2">No</label>
+		        <input type="radio" name="QA6_5" id="qa6-5-2" value="no">
+		    </li>
+	      	<li>
+	      	  Providing a Blood Transfusion?
+			    <label for="qa6-6-1">Yes</label>
+	            <input type="radio" name="QA6_6" id="qa6-6-1" value="yes">
+		        <label for="qa6-6-2">No</label>
+		        <input type="radio" name="QA6_6" id="qa6-6-2" value="no">
+		    </li>
+		  </ol>
+	    </li>
+	    <li>
+	      I found that the CCATT viewer enhanced my understanding of the patient’s condition.
+	      <label for="qa7-1">Strongly Disagree</label>
+          <input type="radio" name="QA7" id="qa7-1" value="1">
+	      <label for="qa7-2">Disagree</label>
+	      <input type="radio" name="QA7" id="qa7-2" value="2">
+	      <label for="qa7-3">Neutral</label>
+	      <input type="radio" name="QA7" id="qa7-3" value="3">
+	      <label for="qa7-4">Agree</label>
+	      <input type="radio" name="QA7" id="qa7-4" value="4">
+	      <label for="qa7-5">Strongly Agree</label>
+	      <input type="radio" name="QA7" id="qa7-5" value="5">
+	    </li>
+	  </ol>
+	  
+	  <div>
+	    <input type="submit" value="Submit" />
+	  </div>
+	</form> 
+</body>
+</html>
