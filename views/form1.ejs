@@ -1,137 +1,244 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CCATT Viewer Rounding Survey</title>
+    <title>CCATT Viewer Rounding Survey</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../jQuery/jquery.mobile-1.1.1.min.css">
+	<script src="../jQuery/jquery-1.7.1.min.js"></script>
+	<script src="../jQuery/jquery.mobile-1.1.1.min.js"></script></head>
+	<link rel="stylesheet" href="./stylesheets/main.css">
+	/*<style>*/
+	/*	#form1 { */
+	/*	    background:rgb(222, 236, 249);*/
+	/*	}*/
+	/*</style>*/
 </head>
 <body>
-  <h1>CCATT Viewer Rounding Survey</h1>
-  	<form action="/survey1" method="POST">
-	  <div>
-	    <label for="badgeID">Badge ID#:</label>
-	    <input type="text" name="BadgeID" id="badgeID" placeholder="Badge ID" required>
-	  </div>
-	  <div>
-        <label>Rounding Type:</label>
-        <label for="rounding-type-1">Team</label>
-        <input type="radio" name="Rounding_type" id="rounding-type-1" value="team">
-	    <label for="rounding-type-2">ICU</label>
-	    <input type="radio" name="Rounding_type" id="rounding-type-2" value="icu">
-	  </div>
-	  <div>
-        <label>Floor:</label>
-        <label for="floor-1">4IMC</label>
-        <input type="radio" name="Floor" id="floor-1" value="4IMC">
-	    <label for="floor-2">4ICU</label>
-	    <input type="radio" name="Floor" id="floor-2" value="4ICU">          
-        <label for="floor-3">5IMC</label>
-        <input type="radio" name="Floor" id="floor-3" value="5IMC">
-	    <label for="floor-4">5ICU</label>
-	    <input type="radio" name="Floor" id="floor-4" value="5ICU">   
-	    <label for="floor-5">6IMC</label>
-	    <input type="radio" name="Floor" id="floor-5" value="6IMC"> 
-	  </div>
-	  <div>
-        <label>New Admit in last 24 hrs:</label>
-        <label for="new-admit-1">Yes</label>
-        <input type="radio" name="New_admit" id="new-admit-1" value="yes">
-	    <label for="new-admit-2">No</label>
-	    <input type="radio" name="New_admit" id="new-admit-2" value="no">
-	  </div>
+<div data-role="page" data-url="/survey1" id="form1">
+    <form action="/survey1" method="POST">
+  	    <h2>CCATT Viewer Rounding Survey</h2>
+        <div class="ui-grid-a">
+		  <div class="ui-block-a">
+		  	<ul>
+		  	  <li>
+        	    Badge ID#
+		        <div data-role="fieldcontain">
+		          <input type="text" name="BadgeID" placeholder="Badge ID" required>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="ui-block-b">
+		  	<ul>
+		  	  <li>
+		  	  	Rounding Type
+		        <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			        <label for="rounding-type-1">Team</label>
+			        <input type="radio" name="Rounding_type" id="rounding-type-1" value="team" required>
+				    <label for="rounding-type-2">ICU</label>
+				    <input type="radio" name="Rounding_type" id="rounding-type-2" value="icu">
+			    </fieldset>
+		  	  </li>	
+		  	</ul>
 
-	  <p><strong>After traditional rounds and before accessing the viewer</strong></p>
-
-	  <p><strong>Directions:</strong> For the following questions please select your responses</p>
-
-	  <ol>
-	    <li>
-	      I have previewed the viewer for this patient before rounding?
-	      <label for="q1-1">Yes</label>
-          <input type="radio" name="Q1" id="q1-1" value="yes">
-	      <label for="q1-2">No</label>
-	      <input type="radio" name="Q1" id="q1-2" value="no">
-	    </li>
-	    <li>
-	      Having reviewed the last 24 hrs during rounds, I feel that in the past 24 hours this  patient has shown evidence of:
-	      <ol>
-	      	<li>
-	      	  Infection
-		        <label for="q2-1-1">Yes</label>
-	            <input type="radio" name="Q2_1" id="q2-1-1" value="yes">
-		        <label for="q2-1-2">No</label>
-		        <input type="radio" name="Q2_1" id="q2-1-2" value="no">	 
-		        <label for="q2-1-3">Unsure</label>
-		        <input type="radio" name="Q2_1" id="q2-1-3" value="unsure">
-	      	</li>
-	      	<li>
-	      	  Hemodynamic instability
-		        <label for="q2-2-1">Yes</label>
-	            <input type="radio" name="Q2_2" id="q2-2-1" value="yes">
-		        <label for="q2-2-2">No</label>
-		        <input type="radio" name="Q2_2" id="q2-2-2" value="no">	 
-		        <label for="q2-2-3">Unsure</label>
-		        <input type="radio" name="Q2_2" id="q2-2-3" value="unsure">
-	      	</li>
-	      	<li>
-	      	  Uncontrolled bleeding
-		        <label for="q2-3-1">Yes</label>
-	            <input type="radio" name="Q2_3" id="q2-3-1" value="yes">
-		        <label for="q2-3-2">No</label>
-		        <input type="radio" name="Q2_3" id="q2-3-2" value="no">	 
-		        <label for="q2-3-3">Unsure</label>
-		        <input type="radio" name="Q2_3" id="q2-3-3" value="unsure">
-	      	</li>
-	      	<li>
-	      	  Respiratory deterioration
-		        <label for="q2-4-1">Yes</label>
-	            <input type="radio" name="Q2_4" id="q2-4-1" value="yes">
-		        <label for="q2-4-2">No</label>
-		        <input type="radio" name="Q2_4" id="q2-4-2" value="no">	 
-		        <label for="q2-4-3">Unsure</label>
-		        <input type="radio" name="Q2_4" id="q2-4-3" value="unsure">
-	      	</li>
-	      </ol>
-	    </li>
-	    <li>
-	      Over the past day the patient’s condition has…
-	      <label for="q3-1">Improved significantly</label>
-          <input type="radio" name="Q3" id="q3-1" value="1">
-	      <label for="q3-2">Improved Slightly</label>
-	      <input type="radio" name="Q3" id="q3-2" value="2">
-	      <label for="q3-3">Unchanged</label>
-	      <input type="radio" name="Q3" id="q3-3" value="3">
-	      <label for="q3-4">Deteriorated slightly</label>
-	      <input type="radio" name="Q3" id="q3-4" value="4">
-	      <label for="q3-5">Deteriorated significantly</label>
-	      <input type="radio" name="Q3" id="q3-5" value="5">
-	    </li>
-	    <li>
-	      Can the patient be transferred to a lower level of care?
-	      <label for="q4-1">Yes</label>
-          <input type="radio" name="Q4" id="q4-1" value="yes">
-	      <label for="q4-2">No</label>
-	      <input type="radio" name="Q4" id="q4-2" value="no">
-	    </li>
-	    <li>
-	      Does the patient need to be transferred to a higher level of care?
-	      <label for="q5-1">Yes</label>
-          <input type="radio" name="Q5" id="q5-1" value="yes">
-	      <label for="q5-2">No</label>
-	      <input type="radio" name="Q5" id="q5-2" value="no">
-	    </li>
-	    <li>
-	      <strong>(TBI Patients Only)</strong> Is the patient having any ICP problems within the last 24hrs?
-	      <label for="q6-1">Yes</label>
-          <input type="radio" name="Q6" id="q6-1" value="yes">
-	      <label for="q6-2">No</label>
-	      <input type="radio" name="Q6" id="q6-2" value="no">
-	      <label for="q6-3">Unsure</label>
-	      <input type="radio" name="Q6" id="q6-3" value="unsure">
-	    </li>
-	  </ol>
-	  
-	  <div>
-	    <input type="submit" value="Submit" />
-	  </div>
-	</form> 
+	      </div>
+	    </div>
+	    <div class="ui-grid-a">
+	      <div class="ui-block-a">
+	      	<ul>
+	      	  <li>
+		        Floor
+		        <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			        <label for="floor-1">4IMC</label>
+			        <input type="radio" name="Floor" id="floor-1" value="4IMC" required>
+				    <label for="floor-2">4ICU</label>
+				    <input type="radio" name="Floor" id="floor-2" value="4ICU">          
+			        <label for="floor-3">5IMC</label>
+			        <input type="radio" name="Floor" id="floor-3" value="5IMC">
+			  	    <label for="floor-4">5ICU</label>
+				    <input type="radio" name="Floor" id="floor-4" value="5ICU">   
+				    <label for="floor-5">6IMC</label>
+				    <input type="radio" name="Floor" id="floor-5" value="6IMC"> 
+			    </fieldset>
+		  	  </li>
+		  	</ul>
+		  </div>
+		  <div class="ui-block-b">
+		  	<ul>
+		  	  <li>
+		  	    New STC Admit in last 24 hrs
+			    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			        <label for="new-admit-1">Yes</label>
+			        <input type="radio" name="New_admit" id="new-admit-1" value="yes" required>
+			        <label for="new-admit-2">No</label>
+				    <input type="radio" name="New_admit" id="new-admit-2" value="no">
+		        </fieldset>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
+		
+		<p><strong>After traditional rounds and before accessing the viewer</strong></p>
+		<p>Directions: For the following questions please select your responses</p>
+	
+		<ol>
+		  <li data-shadow="true">
+		  	I have previewed the viewer for this patient before rounding?
+		    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			    <label for="q1-1">Yes</label>
+		        <input type="radio" name="Q1" id="q1-1" value="yes" required>
+			    <label for="q1-2">No</label>
+			    <input type="radio" name="Q1" id="q1-2" value="no">
+			</fieldset>
+		  </li>
+		  <li>
+		  	Having reviewed the last 24 hrs during rounds, I feel that in the past 24 hours this patient has shown evidence of:
+            <!--Having reviewed the last 24 hrs during rounds, I feel that in the past 24 hours this patient has shown evidence of:-->
+		    <div class="ui-grid-a">
+		      <div class="ui-block-a">
+		        <ol type='a' start='1'>
+			      <li>
+	                Infection
+			        <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			          <label for="q2-1-1">Yes</label>
+			          <input type="radio" name="Q2_1" id="q2-1-1" value="yes" required>
+				      <label for="q2-1-2">No</label>
+				      <input type="radio" name="Q2_1" id="q2-1-2" value="no">	 
+				      <label for="q2-1-3">Unsure</label>
+				      <input type="radio" name="Q2_1" id="q2-1-3" value="unsure">
+				    </fieldset>  
+			      </li>
+			      <li>
+	                Hemodynamic instability
+			        <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+				      <label for="q2-2-1">Yes</label>
+			          <input type="radio" name="Q2_2" id="q2-2-1" value="yes" required>
+				      <label for="q2-2-2">No</label>
+				      <input type="radio" name="Q2_2" id="q2-2-2" value="no">	 
+				      <label for="q2-2-3">Unsure</label>
+				      <input type="radio" name="Q2_2" id="q2-2-3" value="unsure">
+				    </fieldset>
+			      </li>
+			    </ol>
+			  </div>
+			  <div class="ui-block-b">
+			    <ol type='a' start='3'>
+			      <li>
+			        Uncontrolled bleeding
+	                <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			          <label for="q2-3-1">Yes</label>
+			          <input type="radio" name="Q2_3" id="q2-3-1" value="yes" required>
+				      <label for="q2-3-2">No</label>
+				      <input type="radio" name="Q2_3" id="q2-3-2" value="no">	 
+				      <label for="q2-3-3">Unsure</label>
+				      <input type="radio" name="Q2_3" id="q2-3-3" value="unsure">
+				    </fieldset>
+			      </li>
+			      <li>
+			        Respiratory deterioration
+			        <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+				      <label for="q2-4-1">Yes</label>
+			          <input type="radio" name="Q2_4" id="q2-4-1" value="yes" required>
+				      <label for="q2-4-2">No</label>
+				      <input type="radio" name="Q2_4" id="q2-4-2" value="no">	 
+				      <label for="q2-4-3">Unsure</label>
+				      <input type="radio" name="Q2_4" id="q2-4-3" value="unsure">
+				    </fieldset>
+			      </li>
+			    </ol>
+			  </div>
+		    </div>
+		  </li>
+		  <li>
+		    Over the past 24hrs the patient’s condition has…
+		    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			    <label for="q3-1">Improved significantly</label>
+		        <input type="radio" name="Q3" id="q3-1" value="1" required>
+			    <label for="q3-2">Improved Slightly</label>
+			    <input type="radio" name="Q3" id="q3-2" value="2">
+			    <label for="q3-3">Unchanged</label>
+			    <input type="radio" name="Q3" id="q3-3" value="3">
+			    <label for="q3-4">Deteriorated slightly</label>
+			    <input type="radio" name="Q3" id="q3-4" value="4">
+			    <label for="q3-5">Deteriorated significantly</label>
+			    <input type="radio" name="Q3" id="q3-5" value="5">
+			</fieldset>
+		  </li>
+		</ol>
+		  
+	    <div class="ui-grid-a">
+		  <div class="ui-block-a">
+		    <ol start="4">
+		      <li>
+		        Can the patient be transferred to a lower level of care?
+			    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+				  <label for="q4-1">Yes</label>
+			      <input type="radio" name="Q4" id="q4-1" value="yes" required>
+				  <label for="q4-2">No</label>
+				  <input type="radio" name="Q4" id="q4-2" value="no">
+			    </fieldset>
+		      </li>
+		    <ol>
+		  </div>
+		  <div class="ui-block-b">
+		    <ol start="5">
+		      <li>
+			    Does the patient need to be transferred to a higher level of care?
+			    <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+				  <label for="q5-1">Yes</label>
+			      <input type="radio" name="Q5" id="q5-1" value="yes" required>
+				  <label for="q5-2">No</label>
+				  <input type="radio" name="Q5" id="q5-2" value="no">
+				  <label for="q5-3">N/A</label>
+				  <input type="radio" name="Q5" id="q5-3" value="na">
+				</fieldset>
+		      </li>
+		    </ol>
+		  </div>
+		</div>
+		<div class="ui-grid-a">
+		  <div class="ui-block-a">
+		    <ol start="6">
+		      <li>
+		        Does this patient have a traumatic brain injury?
+		        <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			      <label for="q6-1">Yes</label>
+		          <input type="radio" name="Q6" id="q6-1" value="yes" required>
+			      <label for="q6-2">No</label>
+			      <input type="radio" name="Q6" id="q6-2" value="no">
+			    </fieldset>
+		      </li>
+		    <ol>
+		  </div>
+		  <div class="ui-block-b">
+		    <ol start="7">
+		      <li>
+		        Is the patient having any ICP problems within the last 24hrs?
+		          <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+			      <label for="q7-1">Yes</label>
+		          <input type="radio" name="Q7" id="q7-1" value="yes" required>
+			      <label for="q7-2">No</label>
+			      <input type="radio" name="Q7" id="q7-2" value="no">
+			      <label for="q7-3">Unsure</label>
+			      <input type="radio" name="Q7" id="q7-3" value="unsure">
+			      <label for="q7-4">N/A</label>
+			      <input type="radio" name="Q7" id="q7-4" value="na">
+			    </fieldset>
+		      </li>
+		    </ol>
+		  </div>
+		</div>
+		<ol start="8">
+		  <li>
+		    Comments (Within 500 words)
+		    <textarea name="Comments_1" placeholder="Share your thoughts here! "></textarea>
+		  </li>
+		</ol>
+	
+		<div>
+		  <input type="submit" value="Submit" />
+		</div>
+    </form> 
+</div>
 </body>
 </html>

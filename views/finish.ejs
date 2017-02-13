@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CCATT Viewer Rounding Survey</title>
+    <title>CCATT Viewer Rounding Survey</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../jQuery/jquery.mobile-1.1.1.min.css">
+	<script src="../jQuery/jquery-1.7.1.min.js"></script>
+	<script src="../jQuery/jquery.mobile-1.1.1.min.js"></script></head></head>
+	<link rel="stylesheet" href="./stylesheets/main.css">
 </head>
 <body>
-  <p>Submitted!</p>
-  <p>
-   <a href="/survey1">New Survey</a>
-  </p>
+  <div data-role="page" data-url="/finish">
+    <div data-role="content" class="center" id="content">	
+      <center> 
+        <p><font size="10">Successfully Submitted!</font></p>
+        <%= time %> 
+	    <p><br></p>
+        <p><a href="/survey1" data-role="button" data-theme="b"><font size="12">New CCATT Survey</font></a></p>
+	  </center>
+    </div>
+	
+	<div data-role="footer"> 
+      <h5>Shock Trauma Center, Univeristy of Maryland, Baltimore &copy;</h5> 
+    </div>
+  </div>
 </body>
 </html>

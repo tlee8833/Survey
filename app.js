@@ -3,7 +3,8 @@ var express        = require("express"),
     bodyParser     = require("body-parser"),
     methodOverride = require("method-override"),
     mysql          = require("mysql"),
-    util           = require("util")
+    util           = require("util"),
+    tablet_id      = 'A'
     
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -31,33 +32,44 @@ app.get("/", function(req, res){
 
 app.get("/survey1", function(req, res) {
     res.render("form1");
+    app.set('time_form1_start', new Date());
 });
 
 app.post("/survey1", function(req, res) {
-//    console.log(req.body);
+    console.log(req.body);
     connection.query("INSERT INTO survey SET ?", req.body, function(err, res) {
         if (err) 
-            throw err;
-        console.log((util.inspect(res, {showHidden: false, depth: null})));
+            console.log(err);
+//        console.log((util.inspect(res, {showHidden: false, depth: null})));
         app.set('survey1_ID', res.insertId);
         app.set('survey1', req.body); //res.insertId); 
+        
+        console.log(req.app.get('time_form1_start'));
+        var time_form1_start = req.app.get('time_form1_start');
+        var time_form1_submit = new Date();
+        connection.query("UPDATE survey SET Tablet_ID = ?, Time_form1_start = ?, Time_form1_submit = ? WHERE ID = ?", [tablet_id, time_form1_start, time_form1_submit, res.insertId], function(err, res) {
+            if (err) 
+                throw err;
+        });
     });
+
     res.redirect("/survey2");
 });
 
 app.get("/survey2", function(req, res) {
-//    req.body.name_of_input
     var survey1 = req.app.get('survey1');
+    
     res.render("form2", {survey1:survey1});
-    console.log(survey1);
+    app.set('time_form2_start', new Date());
 });
 
 app.post("/survey2", function(req, res) {
     var survey1_ID = req.app.get('survey1_ID');
-    console.log(req.body);
-    console.log(req.body.QA1_1);
-    console.log(survey1_ID);
-    connection.query("UPDATE survey SET QA1_1 = ?, QA1_2 = ?, QA1_3 = ?, QA1_4 = ?, QA2 = ?, QA3 = ?, QA4 = ?, QA5 = ?, QA6_1 = ?, QA6_2 = ?, QA6_3 = ?, QA6_4 = ?, QA6_5 = ?, QA6_6 = ?, QA7 = ? WHERE ID = ?", [req.body.QA1_1, req.body.QA1_2, req.body.QA1_3, req.body.QA1_4, req.body.QA2, req.body.QA3, req.body.QA4, req.body.QA5, req.body.QA6_1, req.body.QA6_2, req.body.QA6_3, req.body.QA6_4, req.body.QA6_5, req.body.QA6_6, req.body.QA7, survey1_ID], function(err, res) {
+    var time_form2_start = req.app.get('time_form2_start');
+    var time_form2_submit = new Date();
+    app.set('time_form2_submit', time_form2_submit);
+    
+    connection.query("UPDATE survey SET Time_form2_start = ?, Time_form2_submit = ?, QA1_1 = ?, QA1_2 = ?, QA1_3 = ?, QA1_4 = ?, QA2 = ?, QA3 = ?, QA4 = ?, QA5 = ?, QA6 = ?, QA7_1 = ?, QA7_2 = ?, QA7_3 = ?, QA7_4 = ?, QA7_5 = ?, QA7_6 = ?, QA7_7 = ?, QA7_8 = ?, QA8 = ?, Comments_2 = ? WHERE ID = ?", [time_form2_start, time_form2_submit, req.body.QA1_1, req.body.QA1_2, req.body.QA1_3, req.body.QA1_4, req.body.QA2, req.body.QA3, req.body.QA4, req.body.QA5, req.body.QA6, req.body.QA7_1, req.body.QA7_2, req.body.QA7_3, req.body.QA7_4, req.body.QA7_5, req.body.QA7_6, req.body.QA7_7, req.body.QA7_8, req.body.QA8, req.body.Comments_2, survey1_ID], function(err, res) {
         if (err) 
             throw err;
     });
@@ -65,7 +77,9 @@ app.post("/survey2", function(req, res) {
 });
 
 app.get("/finish", function(req, res) {
-    res.render("finish");
+    var time = req.app.get('time_form2_submit');
+    res.render("finish", {time:time});
+    
 });
 
 app.listen(process.env.PORT, process.env.IP, function() {
