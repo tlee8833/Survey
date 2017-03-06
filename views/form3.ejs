@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CCATT Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../jQuery/jquery.mobile-1.1.1.min.css">
+  <script src="../jQuery/jquery-1.7.1.min.js"></script>
+  <script src="../jQuery/jquery.mobile-1.1.1.min.js"></script></head>
+  <link rel="stylesheet" href="./stylesheets/main.css">
+</head>
+<body>
+  <div data-role="page" data-url="/survey3" id="form3">
+    <form action="/survey3" method="POST">
+      <h2>CCATT Viewer</h2>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <ul>
+            <li>
+              Badge ID#
+              <div data-role="fieldcontain">
+                <input type="text" name="BadgeID" placeholder="Badge ID" required>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="ui-block-b">
+          <ul>
+            <li>
+              Position
+              <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                <label for="position-1">Attending</label>
+                <input type="radio" name="Position" id="position-1" value="attending" required>
+                <label for="position-2">Fellow</label>
+                <input type="radio" name="Position" id="position-2" value="fellow">
+                <label for="position-3">NP</label>
+                <input type="radio" name="Position" id="position-3" value="np">
+                <label for="position-4">PA</label>
+                <input type="radio" name="Position" id="position-4" value="pa">
+              </fieldset>
+            </li>    
+          </ul>
+        </div>
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <ul>
+            <li>
+              Type
+              <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                <label for="type-1">Anesthesia</label>
+                <input type="radio" name="Rounding_type" id="type-1" value="anesthesia" required>
+                <label for="type-2">Team</label>
+                <input type="radio" name="Rounding_type" id="type-2" value="team">
+                <label for="type-3">ICU</label>
+                <input type="radio" name="Rounding_type" id="type-3" value="icu">
+              </fieldset>
+            </li>
+          </ul>
+        </div>
+        <div class="ui-block-b">
+          <ul>
+            <li>
+              Floor
+              <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                <label for="floor-1">OR</label>
+                <input type="radio" name="Floor" id="floor-1" value="or" required>
+                <label for="floor-2">TRU</label>
+                <input type="radio" name="Floor" id="floor-2" value="tru">
+                <label for="floor-3">NTIMC</label>
+                <input type="radio" name="Floor" id="floor-3" value="ntimc">
+                <label for="floor-4">NTICU</label>
+                <input type="radio" name="Floor" id="floor-4" value="nticu">
+                <label for="floor-5">MTIMC</label>
+                <input type="radio" name="Floor" id="floor-5" value="mtimc">
+                <label for="floor-6">MTICU</label>
+                <input type="radio" name="Floor" id="floor-6" value="mticu">
+              </fieldset>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p><strong>Post Shift Survey-After your overnight shift and prior to leaving</strong></p>
+      <p>Directions: For the following questions please select your responses</p>
+
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <ol>
+            <li>
+              I have observeed the viewer during my overnight shift?
+              <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                <label for="q1-1">Yes</label>
+                <input type="radio" name="Q1" id="q1-1" value="yes" required>
+                <label for="q1-2">No</label>
+                <input type="radio" name="Q1" id="q1-2" value="no">
+              </fieldset>
+            </li>
+          </ol>
+        </div>
+        <div class="ui-block-b">
+          <ol start='2'>
+            <li>
+              How would you rate the pace of your overnight shift:
+              <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                <label for="q2-1">Slow</label>
+                <input type="radio" name="Q2" id="q2-1" value="slow" required>
+                <label for="q2-2">Moderate</label>
+                <input type="radio" name="Q2" id="q2-2" value="moderate">
+                <label for="q2-3">Busy</label>
+                <input type="radio" name="Q2" id="q2-3" value="busy">
+              </fieldset>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <ol start='3'>
+        <li>
+          How many times did you look at the following aspects of the viewer:
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <ol type='a' start='1'>
+                <li>
+                  Group overview
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q3-a-1">0 times</label>
+                    <input type="radio" name="Q3_a" id="q3-a-1" value="0 times" required>
+                    <label for="q3-a-2">&lt5 times</label>
+                    <input type="radio" name="Q3_a" id="q3-a-2" value="<5 times">
+                    <label for="q3-a-3">5-10 times</label>
+                    <input type="radio" name="Q3_a" id="q3-a-3" value="5-10 times">
+                    <label for="q3-a-4">&gt10 times</label>
+                    <input type="radio" name="Q3_a" id="q3-a-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+            <div class="ui-block-b">
+              <ol type='a' start='2'>
+                <li>
+                  Indivisual patients
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q3-b-1">0 times</label>
+                    <input type="radio" name="Q3_b" id="q3-b-1" value="0 times" required>
+                    <label for="q3-b-2">&lt5 times</label>
+                    <input type="radio" name="Q3_b" id="q3-b-2" value="<5 times">
+                    <label for="q3-b-3">5-10 times</label>
+                    <input type="radio" name="Q3_b" id="q3-b-3" value="5-10 times">
+                    <label for="q3-b-4">&gt10 times</label>
+                    <input type="radio" name="Q3_b" id="q3-b-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </li>
+        <li>
+          How many times did what you saw on the viewer prompt you to request a status update on a patient 
+          <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+            <label for="q4-1">0 times</label>
+            <input type="radio" name="Q4" id="q4-1" value="0 times" required>
+            <label for="q4-2">&lt5 times</label>
+            <input type="radio" name="Q4" id="q4-2" value="<5 times">
+            <label for="q4-3">5-10 times</label>
+            <input type="radio" name="Q4" id="q4-3" value="5-10 times">
+            <label for="q4-4">&gt10 times</label>
+            <input type="radio" name="Q4" id="q4-4" value=">10 times">
+          </fieldset>  
+        </li>    
+        <li>
+          How many times did looking at the viewer prompt you to perform the following interventions:
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <ol type='a' start='1'>
+                <li>
+                  Order additional diagnostic tests
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q5-a-1">0 times</label>
+                    <input type="radio" name="Q5_a" id="q5-a-1" value="0 times" required>
+                    <label for="q5-a-2">1-5 times</label>
+                    <input type="radio" name="Q5_a" id="q5-a-2" value="1-5 times">
+                    <label for="q5-a-3">6-10 times</label>
+                    <input type="radio" name="Q5_a" id="q5-a-3" value="6-10 times">
+                    <label for="q5-a-4">&gt10 times</label>
+                    <input type="radio" name="Q5_a" id="q5-a-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+            <div class="ui-block-b">
+              <ol type='a' start='2'>
+                <li>
+                  Change current medications
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q5-b-1">0 times</label>
+                    <input type="radio" name="Q5_b" id="q5-b-1" value="0 times" required>
+                    <label for="q5-b-2">1-5 times</label>
+                    <input type="radio" name="Q5_b" id="q5-b-2" value="1-5 times">
+                    <label for="q5-b-3">6-10 times</label>
+                    <input type="radio" name="Q5_b" id="q5-b-3" value="6-10 times">
+                    <label for="q5-b-4">&gt10 times</label>
+                    <input type="radio" name="Q5_b" id="q5-b-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <ol type='a' start='3'>
+                <li>
+                  Order additional labs
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q5-c-1">0 times</label>
+                    <input type="radio" name="Q5_c" id="q5-c-1" value="0 times" required>
+                    <label for="q5-c-2">&lt5 times</label>
+                    <input type="radio" name="Q5_c" id="q5-c-2" value="1-5 times">
+                    <label for="q5-c-3">5-10 times</label>
+                    <input type="radio" name="Q5_c" id="q5-c-3" value="6-10 times">
+                    <label for="q5-c-4">&gt10 times</label>
+                    <input type="radio" name="Q5_c" id="q5-c-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+            <div class="ui-block-b">
+              <ol type='a' start='4'>
+                <li>
+                  Personally re-examine a patient
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q5-d-1">0 times</label>
+                    <input type="radio" name="Q5_d" id="q5-d-1" value="0 times" required>
+                    <label for="q5-d-2">1-5 times</label>
+                    <input type="radio" name="Q5_d" id="q5-d-2" value="1-5 times">
+                    <label for="q5-d-3">6-10 times</label>
+                    <input type="radio" name="Q5_d" id="q5-d-3" value="6-10 times">
+                    <label for="q5-d-4">&gt10 times</label>
+                    <input type="radio" name="Q5_d" id="q5-d-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <ol type='a' start='5'>
+                <li>
+                  Provide a Fluid Bolus
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q5-e-1">0 times</label>
+                    <input type="radio" name="Q5_e" id="q5-e-1" value="0 times" required>
+                    <label for="q5-e-2">&lt5 times</label>
+                    <input type="radio" name="Q5_e" id="q5-e-2" value="1-5 times">
+                    <label for="q5-e-3">5-10 times</label>
+                    <input type="radio" name="Q5_e" id="q5-e-3" value="6-10 times">
+                    <label for="q5-e-4">&gt10 times</label>
+                    <input type="radio" name="Q5_e" id="q5-e-4" value=">10 times">
+                  </fieldset>  
+                </li>
+              </ol>
+            </div>
+            <div class="ui-block-b">
+              <ol type='a' start='6'>
+                <li>
+                  Provide a Blood Transfusion
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+                    <label for="q5-f-1">0 times</label>
+                    <input type="radio" name="Q5_f" id="q5-f-1" value="0 times" required>
+                    <label for="q5-f-2">1-5 times</label>
+                    <input type="radio" name="Q5_f" id="q5-f-2" value="1-5 times">
+                    <label for="q5-f-3">6-10 times</label>
+                    <input type="radio" name="Q5_f" id="q5-f-3" value="6-10 times">
+                    <label for="q5-f-4">&gt10 times</label>
+                    <input type="radio" name="Q5_f" id="q5-f-4" value=">10 times">
+                  </fieldset>
+                </li>
+              </ol>
+            </div>
+          </div>           
+        </li>    
+        <li>
+          During my shift, the viewer was useful for triage for a group of patients...
+          <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+            <label for="q6-1">Strongly Disagree</label>
+            <input type="radio" name="Q6" id="q6-1" value="1" required>
+            <label for="q6-2">Disagree</label>
+            <input type="radio" name="Q6" id="q6-2" value="2">
+            <label for="q6-3">Neutral</label>
+            <input type="radio" name="Q6" id="q6-3" value="3">
+            <label for="q6-4">Agree</label>
+            <input type="radio" name="Q6" id="q6-4" value="4">
+            <label for="q6-5">Strongly Agree</label>
+            <input type="radio" name="Q6" id="q6-5" value="5">
+          </fieldset>
+        </li>
+        <li>
+          During my shift, the viewer was useful for individual patient assessments...
+          <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+            <label for="q7-1">Strongly Disagree</label>
+            <input type="radio" name="Q7" id="q7-1" value="1" required>
+            <label for="q7-2">Disagree</label>
+            <input type="radio" name="Q7" id="q7-2" value="2">
+            <label for="q7-3">Neutral</label>
+            <input type="radio" name="Q7" id="q7-3" value="3">
+            <label for="q7-4">Agree</label>
+            <input type="radio" name="Q7" id="q7-4" value="4">
+            <label for="q7-5">Strongly Agree</label>
+            <input type="radio" name="Q7" id="q7-5" value="5">
+          </fieldset>
+        </li>
+        <li>
+          Comments (Within 500 words)
+          <textarea name="Comments" placeholder="Share your thoughts here! "></textarea>
+        </li>
+      </ol>
+
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form> 
+  </div>
+</body>
+</html>
