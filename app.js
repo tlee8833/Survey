@@ -11,20 +11,34 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 
-var connection = mysql.createConnection( {
+var db_config = {
   host     : 'localhost',
   user     : 'tlee8833',
   password : '',
   database : 'c9'
-});
+};
 
-connection.connect(function(err) {
-  if(!err) {
-    console.log("Database is connected ... \n");
-  } else {
-    console.log("Error connecting database ... \n");
-  }
-});
+var connection;
+
+function handleDisconnect() {
+  connection = mysql.createConnection(db_config);
+
+  connection.connect(function(err) {
+    if (err) {
+      setTimeout(handleDisconnect, 2000);
+    }
+  });
+
+  connection.on('error', function(err) {
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+      handleDisconnect();
+    } else {
+      throw err;
+    }
+  });
+}
+
+handleDisconnect();
 
 app.get("/", function(req, res) {
   res.redirect("/survey1");
